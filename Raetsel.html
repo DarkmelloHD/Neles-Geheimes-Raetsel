@@ -18,25 +18,27 @@
     .container {
       text-align: center;
       background-color: #333;
-      padding: 40px;
+      padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 90%; /* Container passt sich auf Mobilgeräte an */
     }
     h1 {
-      font-size: 2rem;
+      font-size: 1.5rem; /* Kleinere Schriftgröße für Mobilgeräte */
       margin-bottom: 20px;
     }
     .options {
       display: flex;
+      flex-wrap: wrap; /* Buttons brechen in die nächste Zeile um */
       justify-content: center;
-      gap: 15px;
+      gap: 10px;
       margin-top: 20px;
     }
     .btn {
       background-color: #4CAF50;
       border: none;
       color: white;
-      padding: 15px 32px;
+      padding: 15px 20px; /* Buttons passen sich automatisch an */
       text-align: center;
       font-size: 1rem;
       cursor: pointer;
@@ -48,17 +50,31 @@
     }
     #result {
       margin-top: 20px;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
     .hidden {
       display: none;
+    }
+
+    /* Media Query für Mobilgeräte */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+      .btn {
+        padding: 12px 15px; /* Kleinere Buttons für Mobilgeräte */
+        font-size: 0.9rem;
+      }
+      #result {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Beantworte die Frage, um das Raetsel zu Lösen!</h1>
-    <p id="question">Was ist das Datum wo wir uns das erste mal Trafen?</p>
+    <h1>Beantworte die Frage, um das Rätsel zu lösen!</h1>
+    <p id="question">Was ist das Datum, wo wir uns das erste Mal trafen?</p>
     <div class="options">
       <button class="btn" onclick="checkAnswer('a')">30.03.25</button>
       <button class="btn" onclick="checkAnswer('b')">23.03.25</button>
