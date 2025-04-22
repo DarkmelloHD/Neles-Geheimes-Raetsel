@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rätsel – Dein Geheimnis wartet!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1a1a1a;
+      color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 90%; /* Container passt sich auf Mobilgeräte an */
+    }
+    h1 {
+      font-size: 1.5rem; /* Kleinere Schriftgröße für Mobilgeräte */
+      margin-bottom: 20px;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap; /* Buttons brechen in die nächste Zeile um */
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 20px; /* Buttons passen sich automatisch an */
+      text-align: center;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 1rem;
+    }
+    .hidden {
+      display: none;
+    }
+
+    /* Media Query für Mobilgeräte */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 1.2rem;
+      }
+      .btn {
+        padding: 12px 15px; /* Kleinere Buttons für Mobilgeräte */
+        font-size: 0.9rem;
+      }
+      #result {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Beantworte die Frage, um das Rätsel zu lösen!</h1>
+    <p id="question">Was ist das Datum, wo wir uns das erste Mal trafen?</p>
+    <div class="options">
+      <button class="btn" onclick="checkAnswer('a')">30.03.25</button>
+      <button class="btn" onclick="checkAnswer('b')">23.03.25</button>
+      <button class="btn" onclick="checkAnswer('c')">06.04.25</button>
+    </div>
+    <p id="result" class="hidden">Leider falsch! Versuch es noch einmal.</p>
+    <p id="successMessage" class="hidden">Herzlichen Glückwunsch! Du hast das Rätsel gelöst! Klicke unten, um deinen Preis zu erhalten.</p>
+    <div id="downloadLink" class="hidden">
+      <a href="https://drive.google.com/drive/folders/1XuWwOjuGu1xeI5d5jaGaz3XCWuVMerqU?usp=drive_link" download class="btn">Jetzt herunterladen!</a>
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer(choice) {
+      const correctAnswer = 'b'; // Die richtige Antwort (23.03.25)
+      const result = document.getElementById('result');
+      const successMessage = document.getElementById('successMessage');
+      const downloadLink = document.getElementById('downloadLink');
+      result.classList.add('hidden');
+      successMessage.classList.add('hidden');
+      downloadLink.classList.add('hidden');
+
+      if (choice === correctAnswer) {
+        successMessage.classList.remove('hidden');
+        downloadLink.classList.remove('hidden');
+      } else {
+        result.classList.remove('hidden');
+      }
+    }
+  </script>
+</body>
+</html>
